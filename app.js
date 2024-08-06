@@ -32,8 +32,16 @@ app.get("/", (req, res) => {
     app.use(express.static(path.resolve(__dirname, "frontend", "build")));
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
 });
-  
 
-app.listen(3001, () => {
+const app1 = express()
+app1.use(cors({
+    origin: [""],
+    methods: ["POST","GET"],
+    credentials: true
+}));
+app1.use(express.json());
+
+
+app.listen(1000, () => {
     console.log("Server started");
 });
